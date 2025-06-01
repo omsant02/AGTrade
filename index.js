@@ -15,7 +15,10 @@ app.get('/', (req, res) => {
 app.post('/webhook', (req, res) => {
     console.log('🚀 NEW SIGNAL RECEIVED!');
     console.log('Time:', new Date().toISOString());
-    console.log('Signal Data:', req.body);
+    console.log('Headers:', req.headers);
+    console.log('Raw Body:', req.body);
+    console.log('Body Type:', typeof req.body);
+    console.log('Body Keys:', Object.keys(req.body || {}));
     console.log('-------------------');
     
     res.json({ 
